@@ -5,6 +5,10 @@ import (
 	"os"
 )
 
+// TODO create a compressed notation dialect that reduces the amount of command repetition
+// ex. ++++++++ could be expressed as +8
+// in order to avoid conflicts with normal programs that use comments, it should be done by feeding it into a function that outputs the expanded code
+
 func RunProgram(program string) string {
 	var tape [30000]byte
 	var pointer uint
