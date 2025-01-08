@@ -11,8 +11,6 @@ func DecompressProgram(input string) string {
 		return ""
 	}
 
-	input = strings.ReplaceAll(input, " ", "") // remove whitespace
-
 	sb := strings.Builder{}
 
 	var currRune rune

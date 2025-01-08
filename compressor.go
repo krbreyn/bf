@@ -15,7 +15,8 @@ func CompressProgram(input string) string {
 		return ""
 	}
 
-	input = strings.ReplaceAll(input, " ", "") // remove whitespace
+	input = strings.ReplaceAll(input, " ", "")  // remove whitespace
+	input = strings.ReplaceAll(input, "\n", "") // remove newlines
 
 	sb := strings.Builder{}
 
