@@ -26,11 +26,18 @@ func TestDialect(t *testing.T) {
 		want := "+8[>+4[>+2>+3>+3>+<4-]>+>+>->2+[<]<-]>2.>-3.+7.2+3.>2.<-.<.+3.-6.-8.>2+.>+2."
 
 		if got != want {
-			t.Errorf("got %s ,\nwanted %s", got, want)
+			t.Fatalf("got %s\nwanted %s", got, want) //fatal because cant run next test if compressor isnt working right
 		}
 	})
 
 	t.Run("decompresses hello world program", func(t *testing.T) {
+		compressed := bf.CompressProgram(helloWorldProgram)
 
+		got := bf.DecompressProgram(compressed)
+		want := helloWorldProgram
+
+		if got != want {
+			t.Fatalf("got %s\nwanted %s", got, want)
+		}
 	})
 }
