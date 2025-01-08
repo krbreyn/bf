@@ -2,6 +2,7 @@ package bf
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 )
 
@@ -37,6 +38,10 @@ func RunProgram(program string) string {
 			output = append(output, rune(tape[pointer]))
 
 		case ',':
+			//cheating
+			fmt.Println(string(output))
+			output = []rune{}
+
 			in, _, err := reader.ReadRune()
 			if err != nil {
 				panic(err)
