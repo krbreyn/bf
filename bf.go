@@ -39,7 +39,7 @@ func RunProgram(program string) string {
 
 		case ',':
 			//cheating
-			fmt.Println(string(output))
+			fmt.Print(string(output))
 			output = []rune{}
 
 			in, _, err := reader.ReadRune()
