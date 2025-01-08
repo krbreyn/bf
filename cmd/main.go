@@ -5,12 +5,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/krbreyn/bf_go"
+	"github.com/krbreyn/bf"
 )
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Println("usage: bfgo <input_file.bf>")
+		fmt.Println("usage: bfgo <input_file.bf> [compress/decompress (optional)]")
 		return
 	}
 
@@ -29,6 +29,16 @@ func main() {
 		fmt.Println("error reading file", err)
 	}
 
-	fmt.Println(bf_go.RunProgram(string(file)))
-
+	if len(os.Args) == 3 {
+		switch os.Args[2] {
+		case "compress":
+			fmt.Println(bf.CompressProgram(string(file)))
+		case "decompress":
+			fmt.Println(bf.DecompressProgram(string(file)))
+		default:
+			fmt.Println("invalid command")
+		}
+	} else {
+		fmt.Println(bf.RunProgram(string(file)))
+	}
 }
