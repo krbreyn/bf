@@ -1,4 +1,4 @@
-package bf_go
+package bf
 
 import (
 	"bufio"
