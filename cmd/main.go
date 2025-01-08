@@ -29,16 +29,18 @@ func main() {
 		fmt.Println("error reading file", err)
 	}
 
+	toRun := string(file)
+
 	if len(os.Args) == 3 {
 		switch os.Args[2] {
 		case "compress":
-			fmt.Println(bf.CompressProgram(string(file)))
+			fmt.Println(bf.CompressProgram(toRun))
 		case "decompress":
-			fmt.Println(bf.DecompressProgram(string(file)))
+			fmt.Println(bf.DecompressProgram(toRun))
 		default:
 			fmt.Println("invalid command")
 		}
 	} else {
-		fmt.Println(bf.RunProgram(string(file)))
+		fmt.Println(bf.RunProgram(toRun))
 	}
 }
