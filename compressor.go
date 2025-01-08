@@ -15,6 +15,8 @@ func CompressProgram(input string) string {
 		return ""
 	}
 
+	input = strings.ReplaceAll(input, " ", "") // remove whitespace
+
 	sb := strings.Builder{}
 
 	var chart c_num_chart
