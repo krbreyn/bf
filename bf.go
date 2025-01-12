@@ -14,7 +14,6 @@ func RunProgram(program string) string {
 
 	var output []rune
 
-	// alternative way of doing it is to send input in as string alongside program
 	reader := bufio.NewReader(os.Stdin)
 
 	for i := 0; i < len(program); i++ {
