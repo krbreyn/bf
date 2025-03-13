@@ -1,6 +1,7 @@
 package bf
 
 import (
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -25,7 +26,13 @@ func CompressProgram(input string) string {
 
 	var charts []c_num_chart
 
+	bf_syntax := []string{">", "<", "+", "-", ".", ",", "[", "]"}
+
 	for i, c := range input {
+		if !slices.Contains(bf_syntax, string(c)) {
+			continue
+		}
+
 		chart.num++
 
 		if i == len(input)-1 || byte(input[i+1]) != byte(c) {
